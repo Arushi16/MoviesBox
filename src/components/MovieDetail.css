@@ -1,0 +1,127 @@
+.movie-Board {
+    padding: 1.2rem;
+    margin: 1rem;
+    background: linear-gradient(to top, rgba(235, 205, 33, 0.185), rgba(77, 245, 209, 0.027));
+    color: rgba(194, 239, 241, 0.829);
+    display: grid;
+    grid-template-columns: 40% 60%;
+    border: .1rem solid rgb(156, 146, 146);
+    border-radius: .5rem;
+    box-shadow: .1rem .1rem rgb(156, 146, 146),
+        .2rem .2rem rgb(8, 8, 7),
+        .3rem .3rem rgb(156, 146, 146);
+}
+
+.loading {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: rgba(255, 230, 0, 0.836);
+}
+
+.title {
+    font-size: larger;
+    font-weight: 800;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+.head-text {
+    color: rgba(101, 220, 226, 0.829);
+    text-transform: uppercase;
+    letter-spacing: .2rem;
+}
+
+.subhead {
+    letter-spacing: .1rem;
+    text-transform: none;
+    color: rgba(194, 239, 241, 0.829);
+}
+
+.subType {
+    text-transform: capitalize;
+}
+
+.ratings {
+    margin: 1rem;
+    text-align: center;
+}
+
+.tags-container {
+    margin: 2rem;
+}
+
+.tags-container>span {
+    border: .15rem solid black;
+    border-radius: .5rem;
+    margin: .5rem;
+    padding: .5rem;
+    background: linear-gradient(to left, rgba(235, 205, 33, 0.288), rgba(77, 245, 209, 0.027));
+}
+
+.image-section {
+    margin-top: 2rem;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.image {
+    animation: roll 2.5s ease forwards;
+}
+
+@keyframes roll {
+    0% {
+        transform: rotate(0);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.details-section {
+    text-align: right;
+    margin-top: 2rem;
+}
+
+.progressBar {
+    animation: linearProgress 3s forwards;
+}
+
+@keyframes linearProgress {
+    from {
+        width: 0;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .movie-Board {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+    }
+
+    .details-section {
+        text-align: center;
+    }
+
+    .tags-container {
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .tags-container>span {
+        border: .15rem solid black;
+        border-radius: .5rem;
+        margin: .5rem;
+        padding: .5rem;
+        background: linear-gradient(to left, rgba(235, 205, 33, 0.288), rgba(77, 245, 209, 0.027));
+    }
+}

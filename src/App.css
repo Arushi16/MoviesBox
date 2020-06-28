@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: rgba(0, 0, 0, 0.89);
+  color: white;
+  min-height: 100vh;
+  font-family: Poppins, Helvetica, sans-serif;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  padding-bottom: 1rem;
+}
+
+.navStyle {
+  right: 0;
+  position: absolute;
+  font-size: 1.4rem;
+  letter-spacing: .5rem;
+  cursor: pointer;
+}
+
+.link {
+  color: yellow;
+  text-decoration: none;
+}
+
+.link>li:hover {
+  color: rgba(255, 255, 0, 0.534);
+}
+
+.errorPage {
+  min-height: 90vh;
+  z-index: -1;
+  background: url('./images/404.svg');
+  background-size: 100% 100vh;
+  background-repeat: no-repeat;
+  color: white;
+  animation: scaleUp 1.6s forwards;
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0);
+  }
+
+  to {
+    transform: scale(1);
+  }
+}
+
+.errorPage>h4 {
+  float: right;
+  margin: 1rem;
+  color: rgba(255, 255, 0, 0.548);
+}
+
+h4>.icon_arrow {
+  font-weight: 900;
+  font-size: 2rem;
+}
+
+.para {
+  position: relative;
+  -webkit-text-stroke-color: rgb(247, 38, 10);
+  -webkit-text-stroke-width: 1px;
+  transition: all .4s;
+  font-size: 7rem;
+  display: inline;
+}
+
+.para::before {
+  content: '404';
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: #ff4800;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.para:hover::before {
+  filter: blur(10px);
+}
+
+.para:hover {
+  color: #ffffff;
+}
+
+footer {
+  position: fixed;
+  width: 100%;
+  background-color: black;
+  text-align: center;
+  bottom: 0;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+footer>p {
+  font-size: .6rem;
+}
+
+@media screen and (max-width: 900px) {
+  nav {
+    padding-bottom: 2rem;
+  }
+
+}

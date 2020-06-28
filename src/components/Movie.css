@@ -1,0 +1,43 @@
+.movie-card {
+    align-items: center;
+    margin: 2rem;
+    width: 150px;
+    cursor: pointer;
+}
+
+img {
+    height: 200px;
+    width: 150px;
+    background-size: contain;
+    border-radius: 1rem;
+}
+
+.detail-card {
+    font-size: 1.2rem;
+    font-weight: lighter;
+    text-align: center;
+}
+
+.detail-card>p {
+    text-transform: capitalize;
+    font-size: 1rem;
+}
+
+.image-card:hover {
+    animation: sizeUp .5s forwards;
+}
+
+@keyframes sizeUp {
+    to {
+        transform: scale(1.2);
+    }
+}
+
+.year {
+    font-size: .9rem;
+}
+
+.link_details {
+    color: white;
+    text-decoration: none;
+}
