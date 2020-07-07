@@ -1,9 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import './Home.css'
 import { fetchMovies } from '../api/api'
 import Movie from './Movie'
 
-class Home extends Component {
+class Home extends PureComponent {
+    _isMounted = false;
+    inputRef = React.createRef()
+
     state = {
         movieInput: '',
         moviesArr: [],
@@ -15,9 +18,15 @@ class Home extends Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
+        this.inputRef.current.focus()
         this.scrollListener = window.addEventListener('scroll', (e) => {
             this.handleScroll(e)
         })
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     handleScroll = (e) => {
@@ -39,7 +48,7 @@ class Home extends Component {
     handleChange = (e) => {
         this.setState({
             movieInput: e.target.value,
-            moviesArr: []
+            moviesArr: [],
         })
     }
 
@@ -55,13 +64,15 @@ class Home extends Component {
         const { movieInput, pageNum } = this.state
         const response = await fetchMovies(movieInput, pageNum)
         if (response.Response === 'True') {
-            this.setState({
-                moviesArr: [...this.state.moviesArr, ...response.mainResults],
-                totalResults: response.totalResults,
-                scrolling: false,
-                error: response.errorMsg,
-                loadingMsg: '',
-            })
+            if (this._isMounted) {
+                this.setState({
+                    moviesArr: [...this.state.moviesArr, ...response.mainResults],
+                    totalResults: response.totalResults,
+                    scrolling: false,
+                    error: response.errorMsg,
+                    loadingMsg: '',
+                })
+            }
         }
         else {
             this.setState({
@@ -87,6 +98,8 @@ class Home extends Component {
                     <form onSubmit={this.handleClick}>
                         <input type='text' value={this.state.movieInput} onChange={this.handleChange}
                             placeholder='Enter the movie name..'
+                            ref= {this.inputRef}
+                            required
                         />
                         <input className='search' type='submit' />
                     </form>
@@ -104,7 +117,7 @@ class Home extends Component {
                     }
                     )}
                 </div>
-                <h2 style={{textAlign: 'center',margin: '2rem'}}>{this.state.loadingMsg ? this.state.loadingMsg : ''}</h2>
+                <h4 style={{ textAlign: 'center', margin: '2rem' }}>{this.state.loadingMsg ? this.state.loadingMsg : ''}</h4>
                 <div className='scrollToTop' onClick={() => window.scroll(0, 0)}>
                     <span className='arrowTop'>&uarr;</span>
                 </div>

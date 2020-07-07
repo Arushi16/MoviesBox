@@ -9,7 +9,7 @@ const Movie = (props) => {
     return (
         <>
             <div className='movie-card'>
-                <Link to={`/MovieSearch/${props.imdbID}`} className='link_details'>
+                <Link to={`/movie/${props.imdbID}`} className='link_details'>
                     <div className='image-card'>
                         <img src={poster} alt={props.Title} />
                     </div>

@@ -24,7 +24,7 @@ export const fetchMovies = async (searchString,page) => {
 
 export const fetchMovieDetails = async (query) => {
     try {
-        const link = `${base}${apiKey}&i=${query}&plot=full`
+        const link = `${base}${apiKey}&i=${query}`
         const response = await fetch(link)
         const results = await response.json()
         return results

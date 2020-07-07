@@ -10,7 +10,7 @@
 
 body {
   background: rgba(0, 0, 0, 0.89);
-  color: white;
+  color: rgb(248, 255, 255);
   min-height: 100vh;
   font-family: Poppins, Helvetica, sans-serif;
   overflow-x: hidden;
@@ -19,7 +19,7 @@ body {
 }
 
 nav {
-  padding-bottom: 1rem;
+  padding-bottom: 1.2rem;
 }
 
 .navStyle {
@@ -31,12 +31,12 @@ nav {
 }
 
 .link {
-  color: yellow;
+  color: #6b62fe;
   text-decoration: none;
 }
 
 .link>li:hover {
-  color: rgba(255, 255, 0, 0.534);
+  color: #c0bdee;
 }
 
 .errorPage {
@@ -46,23 +46,23 @@ nav {
   background-size: 100% 100vh;
   background-repeat: no-repeat;
   color: white;
-  animation: scaleUp 1.6s forwards;
+  animation: scaleUp .5s forwards;
 }
 
 @keyframes scaleUp {
   from {
-    transform: scale(0);
+    opacity: 0;
   }
 
   to {
-    transform: scale(1);
+    opacity: 1;
   }
 }
 
 .errorPage>h4 {
   float: right;
   margin: 1rem;
-  color: rgba(255, 255, 0, 0.548);
+  color: #6b62fe;
 }
 
 h4>.icon_arrow {
@@ -114,9 +114,33 @@ footer>p {
   font-size: .6rem;
 }
 
+.goBack>button {
+  padding: .2rem;
+  margin-left: 1.2rem;
+  width: 6rem;
+  border-radius: .2rem;
+  border: none;
+  background: linear-gradient(#8c8ae2, #6b62fe);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.goBack>button:hover {
+  background: linear-gradient(to right bottom,#6b62fe,#8c8ae2);
+}
+
+.goBack>button:focus,
+.goBack>button:active {
+  background: linear-gradient(to left bottom,#6b62fe,#8c8ae2);
+}
+
 @media screen and (max-width: 900px) {
   nav {
     padding-bottom: 2rem;
   }
 
+  .errorPage>h4 {
+    margin: .5rem;
+    color: #6b62fe;
+  }
 }

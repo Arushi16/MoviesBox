@@ -1,8 +1,7 @@
 .movie-Board {
     padding: 1.2rem;
     margin: 1rem;
-    background: linear-gradient(to top, rgba(235, 205, 33, 0.185), rgba(77, 245, 209, 0.027));
-    color: rgba(194, 239, 241, 0.829);
+    margin-bottom: 3rem;
     display: grid;
     grid-template-columns: 40% 60%;
     border: .1rem solid rgb(156, 146, 146);
@@ -14,9 +13,9 @@
 
 .loading {
     text-align: center;
-    justify-content: center;
-    align-items: center;
-    color: rgba(255, 230, 0, 0.836);
+    color: #b9b6f1a8;
+    top: 45vh;
+    position: relative;
 }
 
 .title {
@@ -29,7 +28,7 @@ p {
 }
 
 .head-text {
-    color: rgba(101, 220, 226, 0.829);
+    color: rgb(248, 255, 255);
     text-transform: uppercase;
     letter-spacing: .2rem;
 }
@@ -37,7 +36,7 @@ p {
 .subhead {
     letter-spacing: .1rem;
     text-transform: none;
-    color: rgba(194, 239, 241, 0.829);
+    color: rgba(255, 255, 255, 0.897);
 }
 
 .subType {
@@ -58,7 +57,7 @@ p {
     border-radius: .5rem;
     margin: .5rem;
     padding: .5rem;
-    background: linear-gradient(to left, rgba(235, 205, 33, 0.288), rgba(77, 245, 209, 0.027));
+    background: linear-gradient(to left, #6b62fe, #5b598388);
 }
 
 .image-section {
@@ -68,18 +67,9 @@ p {
     text-align: center;
 }
 
-.image {
-    animation: roll 2.5s ease forwards;
-}
-
-@keyframes roll {
-    0% {
-        transform: rotate(0);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+.image{
+    height: 25rem;
+    width: 20rem;
 }
 
 .details-section {
@@ -122,6 +112,13 @@ p {
         border-radius: .5rem;
         margin: .5rem;
         padding: .5rem;
-        background: linear-gradient(to left, rgba(235, 205, 33, 0.288), rgba(77, 245, 209, 0.027));
+        background: linear-gradient(to left, #6b62fe, #5b598388);
+    }
+}
+
+@media screen and (max-width: 500px){    
+    .image{
+        height: 10rem;
+        width: 10rem;
     }
 }

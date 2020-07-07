@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Home from './components/Home';
-import Navbar from './components/Navbar'
-import MovieDetail from './components/MovieDetail';
+// import Navbar from './components/Navbar'
+// import MovieDetail from './components/MovieDetail';
 import { Error } from './components/Error'
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Footer } from './components/Footer';
+// import { Footer } from './components/Footer';
+
+const Navbar = React.lazy(() => import('./components/Navbar'))
+const MovieDetail = React.lazy(() => import('./components/MovieDetail'))
+const Footer = React.lazy(() => import('./components/Footer'))
 
 function App() {
   return (
     <Router>
       <div className="App">
-        <Navbar />
+        <Suspense fallback={<h6></h6>}>
+          <Navbar />
+        </Suspense>
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/MovieSearch/' exact component={Home} />
-          <Route path='/MovieSearch/:id' exact component={MovieDetail} />
-          <Route path='/movie/:id' exact component={MovieDetail} />
+          <Suspense fallback={<h6 style={{ textAlign: 'center' }}>Loading..</h6>}>
+            <Route path='/movie/:id' exact component={MovieDetail} />
+          </Suspense>
           <Route component={Error} />
         </Switch>
-        <Footer />
+        <Suspense fallback={<h6></h6>}>
+          <Footer />
+        </Suspense>
       </div>
     </Router>
   );
