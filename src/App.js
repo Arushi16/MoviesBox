@@ -1,11 +1,8 @@
 import React, { Suspense } from 'react';
 import Home from './components/Home';
-// import Navbar from './components/Navbar'
-// import MovieDetail from './components/MovieDetail';
 import { Error } from './components/Error'
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-// import { Footer } from './components/Footer';
 
 const Navbar = React.lazy(() => import('./components/Navbar'))
 const MovieDetail = React.lazy(() => import('./components/MovieDetail'))

@@ -5,7 +5,7 @@ import '../App.css'
 function GoBack() {
     return (
         <div>
-            <Link to='/MovieSearch' className='goBack'>
+            <Link to='/' className='goBack'>
                 <button>Go Back</button>
             </Link>
         </div>
